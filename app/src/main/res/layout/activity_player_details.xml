@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbPlayerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:title="@string/player_details_toolbar_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/pbSearchLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:minWidth="48dp"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSeasonSearch"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvNoSeasonAveragesFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/player_details_no_results"
+        android:textSize="32dp"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSeasonSearch"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <EditText
+        android:id="@+id/etSeasonSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/player_details_season_search_hint"
+        android:layout_marginHorizontal="16dp"
+        android:imeOptions="actionSearch"
+        android:inputType="number"
+        android:maxLength="4"
+        app:layout_constraintTop_toBottomOf="@+id/tbPlayerName"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ltSeasonAverages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/etSeasonSearch">
+
+        <TextView
+            android:id="@+id/tvSeasonAveragesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Seasonal Averages"
+            android:textSize="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ltPlayedStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeasonAveragesTitle">
+
+            <TextView
+                android:id="@+id/tvGamesPlayed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_games_played"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tvPoints"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvPoints"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_points"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/tvGamesPlayed"
+                app:layout_constraintRight_toLeftOf="@+id/tvMinutesPlayed"/>
+
+            <TextView
+                android:id="@+id/tvMinutesPlayed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_minutes_played"
+                app:layout_constraintLeft_toRightOf="@+id/tvPoints"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ltFieldGoals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ltPlayedStats">
+
+            <TextView
+                android:id="@+id/tvFieldGoalsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_details_field_goals_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvFieldGoalsMade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_field_goals_made"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFieldGoalsTitle"/>
+
+            <TextView
+                android:id="@+id/tvFieldGoalsAttempted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_field_goals_attempted"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFieldGoalsMade"/>
+
+            <TextView
+                android:id="@+id/tvFieldGoalsPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_field_goals_percentage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFieldGoalsAttempted"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ltFieldGoalThrees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ltFieldGoals">
+
+            <TextView
+                android:id="@+id/tvFieldGoalThreesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_details_field_goal_3_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvFieldGoalsThreePointersMade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_field_goal_3_pointers_made"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFieldGoalThreesTitle"/>
+
+            <TextView
+                android:id="@+id/tvFieldGoalsThreePointersAttempted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_field_goal_3_pointers_attempted"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFieldGoalsThreePointersMade"/>
+
+            <TextView
+                android:id="@+id/tvFieldGoalsThreePointersPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_field_goal_3_pointers_percentage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFieldGoalsThreePointersAttempted"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ltFreeThrows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ltFieldGoalThrees">
+
+            <TextView
+                android:id="@+id/tvFreeThrowsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_details_free_throws_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvFreeThrowsMade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_free_throws_made"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFreeThrowsTitle"/>
+
+            <TextView
+                android:id="@+id/tvFreeThrowsAttempted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_free_throws_attempted"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFreeThrowsMade"/>
+
+            <TextView
+                android:id="@+id/tvFreeThrowsPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_free_throws_percentage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFreeThrowsAttempted"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/ltFreeThrows">
+
+            <TextView
+                android:id="@+id/tvOffensiveRebounds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_offensive_rebounds"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvDefensiveRebounds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_defensive_rebounds"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffensiveRebounds"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvRebounds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_rebounds"
+                app:layout_constraintTop_toBottomOf="@+id/tvDefensiveRebounds"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvAssists"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_assists"
+                app:layout_constraintLeft_toRightOf="@id/tvOffensiveRebounds"
+                app:layout_constraintRight_toLeftOf="@+id/tvTurnovers"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvSteals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_steals"
+                app:layout_constraintTop_toBottomOf="@+id/tvAssists"
+                app:layout_constraintLeft_toLeftOf="@id/tvAssists"/>
+
+            <TextView
+                android:id="@+id/tvBlocks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_blocks"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/tvAssists"
+                app:layout_constraintRight_toLeftOf="@id/tvOffensiveRebounds"/>
+
+            <TextView
+                android:id="@+id/tvPersonalFouls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_personal_fouls"
+                app:layout_constraintTop_toBottomOf="@+id/tvTurnovers"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvTurnovers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/player_details_turnovers"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

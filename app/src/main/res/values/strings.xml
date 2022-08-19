@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Baller Stats Now</string>
+    <string name="main_fragment_btn_player_activity">Search Player</string>
+
+    <string name="title_today">Today</string>
+    <string name="title_player_search">Player Search</string>
+    <string name="title_game_search">Game Search</string>
+    <string name="title_game_search_query">Game Search: %s</string>
+
+    <string name="today_no_results">Nobody Ballin\' Today :(\nCheck Back Tomorrow</string>
+    <string name="today_toolbar_title">Games Today</string>
+
+    <string name="player_search_no_results">No Players Found</string>
+    <string name="player_search_toolbar_hint">Search Player</string>
+    <string name="player_search_sort">Sort By: </string>
+    <string name="player_search_sort_ascending_button">ASC</string>
+    <string name="player_search_sort_descending_button">DESC</string>
+
+    <string name="game_search_toolbar_hint">Game Search</string>
+
+    <string name="game_details_toolbar_title">Game Details</string>
+    <string name="game_details_status">Status: %s</string>
+    <string name="game_details_period">Period: %s</string>
+    <string name="game_details_season">Season: %s</string>
+    <string name="game_details_date">Date: %s</string>
+
+    <string name="player_details_toolbar_title">Player Details</string>
+    <string name="player_details_season_search_hint">Search Season</string>
+    <string name="player_details_no_results">No Season Averages Found</string>
+
+    <string name="player_details_season_averages_title">Season Averages for %d</string>
+    <string name="player_details_year">Year: %s</string>
+    <string name="player_details_games_played">Games: %d</string>
+    <string name="player_details_minutes_played">Minutes: %s</string>
+    <string name="player_details_points">Points: %.2f</string>
+    <string name="player_details_assists">AST: %.2f</string>
+    <string name="player_details_blocks">BLK: %.2f</string>
+    <string name="player_details_rebounds">REB: %.2f</string>
+    <string name="player_details_personal_fouls">PF: %.2f</string>
+    <string name="player_details_steals">STL: %.2f</string>
+    <string name="player_details_turnovers">TOV: %.2f</string>
+    <string name="player_details_offensive_rebounds">OREB: %.2f</string>
+    <string name="player_details_defensive_rebounds">DREB: %.2f</string>
+
+    <string name="player_details_field_goals_title">Field Goals</string>
+    <string name="player_details_field_goals_made">FTM: %.2f</string>
+    <string name="player_details_field_goals_attempted">FTA: %.2f</string>
+    <string name="player_details_field_goals_percentage">FG%%: %.2f%%</string>
+
+    <string name="player_details_field_goal_3_title">Field Goal Threes</string>
+    <string name="player_details_field_goal_3_pointers_made">FG3M: %.2f</string>
+    <string name="player_details_field_goal_3_pointers_attempted">FG3A: %.2f</string>
+    <string name="player_details_field_goal_3_pointers_percentage">FG3%%: %.2f%%</string>
+
+    <string name="player_details_free_throws_title">Free Throws</string>
+    <string name="player_details_free_throws_made">FTM: %.2f</string>
+    <string name="player_details_free_throws_attempted">FTA: %.2f</string>
+    <string name="player_details_free_throws_percentage">FT%%: %.2f%%</string>
+
+    <string name="item_game_home_team_title">Home Team</string>
+    <string name="item_game_visitor_team_title">Visitor Team</string>
+    <string name="item_game_versus_title">VS</string>
+
+    <string name="menu_item_search_title">Search</string>
+    <string name="menu_item_game_search_title">Game</string>
+    <string name="menu_item_today_title">Today</string>
+    <string name="menu_item_player_search_title">Players</string>
+</resources>
