@@ -47,7 +47,15 @@ class TodayFragment : Fragment() {
         binding.rvGames.adapter = gameAdapter
         binding.rvGames.layoutManager = LinearLayoutManager(activity)
         setupObservers()
+        setupSwipeRefresh()
         viewModel.fetchGamesToday()
+    }
+
+    private fun setupSwipeRefresh() {
+        val refreshLayout = binding.srGames
+        refreshLayout.setOnRefreshListener {
+            viewModel.fetchGamesToday()
+        }
     }
 
     private fun setupObservers() {
@@ -57,10 +65,11 @@ class TodayFragment : Fragment() {
             gameAdapter.setGames(it.gameData)
         }
 
-        // Showing loading when requesting data
+        // Handle view states to show loading progress
         val loadingObserver = Observer<Boolean> {
             binding.pbSearchLoading.visibility = if (it) View.VISIBLE else View.INVISIBLE
             binding.rvGames.visibility = if (it) View.INVISIBLE else View.VISIBLE
+            if (!it) binding.srGames.isRefreshing = false
         }
 
         // Show no results message if no games today
